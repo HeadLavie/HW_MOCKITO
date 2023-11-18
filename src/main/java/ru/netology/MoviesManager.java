@@ -13,17 +13,6 @@ public class MoviesManager {
         this.resultLength = resultLength;
     }
 
-    public int getResultLength() {
-        return resultLength;
-    }
-
-    public void setResultLength(int resultLength) {
-        if (resultLength > movies.length) {
-            return;
-        }
-        this.resultLength = resultLength;
-    }
-
     public void save(Movies newMovie) {
         Movies[] tmp = new Movies[movies.length + 1];
         for (int i = 0; i < movies.length; i++) {
@@ -44,7 +33,7 @@ public class MoviesManager {
         } else {
             x = resultLength;
         }
-        Movies[] reversed = new Movies[resultLength];
+        Movies[] reversed = new Movies[x];
         for (int i = 0; i < reversed.length; i++) {
             reversed[i] = movies[movies.length - 1 - i];
         }
