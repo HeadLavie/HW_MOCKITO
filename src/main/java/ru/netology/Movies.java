@@ -13,7 +13,7 @@ public class Movies {
         return movieName;
     }
 
-    public void setName(String movieName) {
+    public void setMovieName(String movieName) {
         this.movieName = movieName;
     }
 }
