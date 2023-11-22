@@ -42,7 +42,7 @@ public class MoviesManagerTest {
     @Test
     public void testFindAll2() {
 
-        MoviesManager manager = new MoviesManager(3);
+        MoviesManager manager = new MoviesManager();
 
         manager.save(movie1);
         manager.save(movie2);
@@ -74,7 +74,7 @@ public class MoviesManagerTest {
     }
 
     @Test
-    public void testFindLast2() {
+    public void testResultLengthShorterThanMovies() {
 
         MoviesManager manager = new MoviesManager(3);
 
@@ -91,7 +91,7 @@ public class MoviesManagerTest {
     }
 
     @Test
-    public void testResultLengthBiggerThanMovies() {
+    public void testResultLengthLongerThanMovies() {
 
         MoviesManager manager = new MoviesManager(5);
 
@@ -101,6 +101,24 @@ public class MoviesManagerTest {
 
 
         Movies[] expected = {movie3, movie2, movie1};
+        Movies[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testResultLengthEqualsMovies() {
+
+        MoviesManager manager = new MoviesManager(6);
+
+        manager.save(movie1);
+        manager.save(movie2);
+        manager.save(movie3);
+        manager.save(movie4);
+        manager.save(movie5);
+        manager.save(movie6);
+
+        Movies[] expected = {movie6, movie5, movie4, movie3, movie2, movie1};
         Movies[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);

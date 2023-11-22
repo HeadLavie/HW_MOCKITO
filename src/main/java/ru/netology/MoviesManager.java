@@ -27,13 +27,13 @@ public class MoviesManager {
     }
 
     public Movies[] findLast() {
-        int x;
+        int managerLength;
         if (movies.length < resultLength) {
-            x = movies.length;
+            managerLength = movies.length;
         } else {
-            x = resultLength;
+            managerLength = resultLength;
         }
-        Movies[] reversed = new Movies[x];
+        Movies[] reversed = new Movies[managerLength];
         for (int i = 0; i < reversed.length; i++) {
             reversed[i] = movies[movies.length - 1 - i];
         }
